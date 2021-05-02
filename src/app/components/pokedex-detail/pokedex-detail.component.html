@@ -1,0 +1,38 @@
+<div class="back-button">
+  <a routerLink="/pokedex"><fa-icon [icon]="faArrowCircleLeft"></fa-icon></a>
+</div>
+
+<div class="pokedex">
+  <div class="pokedex-top">
+    <div class="pokemon-item" *ngFor="let pokedexEntry of pokedexEntryFilteredList">
+        <div class="pokemon-image">
+          <img [src]="pokedexEntry.image ? pokedexEntry.image : '../../../assets/default-pokedex.png'"/>
+        </div>
+        <div class="pokemon-name">
+          <p>{{pokedexEntry.pokemon_species.name}}</p>
+        </div>
+    </div>
+  </div>
+  <div class="pokedex-bottom">
+    <div class="left-container">
+      <fa-icon [icon]="faCircle"></fa-icon>
+    </div>
+    <div class="center-container">
+      <div class="center-top-container">
+        <div class="center-top-left"></div>
+        <div class="center-top-right"></div>
+      </div>
+      <div class="center-bottom-container">
+        <p>{{pokedexEntryList.length}} Pokemons</p>
+      </div>
+    </div>
+    <div class="right-container">
+      <button id="button-back" class="btn pokedex-button pokedex-button-left" (click)="back()" [disabled]="pokedexEntryIndex === 8 ? true : false">
+        <fa-icon [icon]="faAngleLeft"></fa-icon>
+      </button>
+      <button id="button-next" class="btn pokedex-button pokedex-button-right" (click)="next()" [disabled]="pokedexEntryIndex > pokedexEntryList.length - 1 ? true : false">
+        <fa-icon [icon]="faAngleRight"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>
