@@ -1,8 +1,8 @@
-<div>
-  <div class="card" *ngFor="let pokedex of pokedexList" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{pokedex.name}}</h5>
-      <a [routerLink]="['/pokedex', pokedex.name]" class="btn btn-primary">See details</a>
+<div class="pokedex-container">
+  <div class="pokedex-item" *ngFor="let pokedex of pokedexList; let i = index" [routerLink]="['/pokedex', pokedex.name]">
+    <div class="pokedex-overlay" [ngStyle]="{backgroundColor: pokedexColorList[i] }"></div>
+    <div class="pokedex-title">
+      <h4>{{pokedex.name}}</h4>
     </div>
   </div>
 </div>
