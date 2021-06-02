@@ -1,0 +1,7 @@
+<div *ngFor="let pokemon of pokemonList; let i = index">
+  <p>{{pokemon.name}}</p>
+  <!-- <img [src]="pokemonImgList[i].image ? pokedexEntry.image : '../../../assets/default-pokedex.png'"/> -->
+  <!-- <button class="btn btn-primary" [routerLink]="['/pokemon', pokemon.name]">More info</button> -->
+</div>
+<button class="btn btn-primary" (click)="back()" [disabled]="pokemonPrevListUrl ? false : true">Back</button>
+<button class="btn btn-primary" (click)="next()">Next</button>

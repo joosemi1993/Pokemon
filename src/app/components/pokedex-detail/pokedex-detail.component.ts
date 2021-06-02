@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { faAngleRight, faAngleLeft, faCircle, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
-import { PokedexService } from '../../services/pokedex.service';
+import { PokedexService } from '../../services/pokedex/pokedex.service';
 
 
 @Component({
