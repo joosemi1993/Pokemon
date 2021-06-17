@@ -6,7 +6,8 @@ import {
   Pokemon,
   PokemonListComponent,
   PokemonInfoResponse,
-  Image
+  Image,
+  Other
 } from '../../components/pokemon-list/pokemon-list.component';
 
 @Injectable({
@@ -33,8 +34,10 @@ export class PokemonService {
       .then(res => res.data);
   }
 
-  getPokemonImg(url: string) : Promise<Image> {
+  getPokemonImg(url: string) : Promise<Other> {
     return axios.get<PokemonInfoResponse>(url)
-      .then(res => res.data.sprites);
+      .then(res => {
+        return res.data.sprites.other}
+      );
   }
 }

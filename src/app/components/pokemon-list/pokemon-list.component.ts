@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 import { PokemonService } from 'src/app/services/pokemon/pokemon.service';
 
 @Component({
@@ -9,11 +10,9 @@ import { PokemonService } from 'src/app/services/pokemon/pokemon.service';
 export class PokemonListComponent implements OnInit {
 
   pokemonList : Pokemon[] = [];
-  pokemonImgList : string[] = [];
+  pokemonEntryIndex : number = 20
   pokemonNextListUrl : string = "";
   pokemonPrevListUrl : string = "";
-
-  
 
   constructor(private pokemonService: PokemonService) {
     pokemonService.getPokemonList()
@@ -22,17 +21,31 @@ export class PokemonListComponent implements OnInit {
         this.pokemonNextListUrl = res.next;
         this.pokemonPrevListUrl = res.previous;
       });
+    this.infoPokemon(this.pokemonEntryIndex);
   }
 
   ngOnInit(): void {
-    this.pokemonList.forEach(pokemon => {
-      console.log(pokemon)
-      this.pokemonService.getPokemonImg(pokemon.url)
-        .then(res => {
-          this.pokemonImgList.push(res.back_default)
-        })
-    });
   }
+
+  infoPokemon(index: number) {
+    let routePokemonList : string[] = [];
+    for(let i = index - 19; i <= index; i++) {
+      routePokemonList.push("https://pokeapi.co/api/v2/pokemon/" + i);
+    }
+
+    const details = routePokemonList.map(route => axios.get(route));
+
+    Promise.all(details)
+      .then(res => res.map(r => r.data))
+      .then(data => {
+        this.pokemonList.forEach((pokemon, index) => {
+          pokemon.img = data[index].sprites.other.dream_world.front_default;
+          pokemon.height = data[index].height;
+          pokemon.weight = data[index].weight;
+        })
+      })
+  }
+
 
   next() {
     this.pokemonService.getNextPokemonList(this.pokemonNextListUrl)
@@ -40,6 +53,8 @@ export class PokemonListComponent implements OnInit {
         this.pokemonList = res.results;
         this.pokemonNextListUrl = res.next;
         this.pokemonPrevListUrl = res.previous;
+        this.pokemonEntryIndex += 20;
+        this.infoPokemon(this.pokemonEntryIndex);
       })
   }
 
@@ -49,6 +64,8 @@ export class PokemonListComponent implements OnInit {
         this.pokemonList = res.results;
         this.pokemonNextListUrl = res.next;
         this.pokemonPrevListUrl = res.previous;
+        this.pokemonEntryIndex -= 20;
+        this.infoPokemon(this.pokemonEntryIndex);
       })
   }
 }
@@ -56,6 +73,9 @@ export class PokemonListComponent implements OnInit {
 export interface Pokemon {
   name: string;
   url: string;
+  img: string;
+  height: number;
+  weight: number;
 }
 
 export interface PokemonListResponse {
@@ -74,8 +94,18 @@ export interface Ability {
   ability: Ability2;
 }
 
+export interface  Front {
+  front_default: string;
+}
+
+export interface Other {
+  dream_world: Front,
+}
+
 export interface Image {
   back_default: string;
+  front_default: string;
+  other: Other;
 }
 
 export interface PokemonInfoResponse {

@@ -27,7 +27,7 @@ export class PokedexDetailComponent implements OnInit {
     pokedexService.getPokedex(id)
       .then(res => this.pokedexEntryList = res)
       .then(res => this.pokedexEntryFilteredList = res.slice(0, this.pokedexEntryIndex));
-    
+
     this.infoPokemon(this.pokedexEntryIndex);
   }
 
