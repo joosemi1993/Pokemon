@@ -33,11 +33,4 @@ export class PokemonService {
     return axios.get<PokemonListResponse>(url)
       .then(res => res.data);
   }
-
-  getPokemonImg(url: string) : Promise<Other> {
-    return axios.get<PokemonInfoResponse>(url)
-      .then(res => {
-        return res.data.sprites.other}
-      );
-  }
 }
