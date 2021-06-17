@@ -1,0 +1,59 @@
+.pokemon-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pokemon-element {
+  display: flex;
+  flex: 33%;
+  padding: 15px;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  align-items: center;
+}
+
+.pokemon-img {
+  flex: 60%;
+  text-align: center;
+}
+
+.pokemon-img img {
+  width: 270px;
+  height: 200px;
+  text-align: center;
+}
+
+.pokemon-info {
+  flex: 40%;
+}
+
+.pokemon-info h2 {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.pokemon-properties {
+  text-align: center;
+  padding: 0;
+}
+
+.pokemon-properties li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.button-container button {
+  width: 100px;
+  background-color: #eee;
+  color: #000;
+  border: 1px solid #000;
+}

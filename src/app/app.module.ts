@@ -7,12 +7,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { PokedexDetailComponent } from './components/pokedex-detail/pokedex-detail.component';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokedexComponent,
-    PokedexDetailComponent
+    PokedexDetailComponent,
+    PokemonListComponent,
+    PokemonDetailComponent
   ],
   imports: [
     BrowserModule,

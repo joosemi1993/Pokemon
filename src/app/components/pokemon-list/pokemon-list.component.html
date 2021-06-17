@@ -1,0 +1,18 @@
+<div class="pokemon-container">
+  <div class="pokemon-element" *ngFor="let pokemon of pokemonList; let i = index">
+    <div class="pokemon-img">
+      <img [src]="pokemon.img"/>
+    </div>
+    <div class="pokemon-info">
+      <h2>{{pokemon.name}}</h2>
+      <ul class="pokemon-properties">
+        <li>Height: {{pokemon.height}}</li>
+        <li>Weight: {{pokemon.weight}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="button-container">
+  <button class="btn btn-primary" (click)="back()" [disabled]="pokemonPrevListUrl ? false : true">Back</button>
+  <button class="btn btn-primary" (click)="next()">Next</button>
+</div>

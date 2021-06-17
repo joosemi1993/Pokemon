@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component'
 import { PokedexDetailComponent } from './components/pokedex-detail/pokedex-detail.component';
+import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 
 const routes: Routes = [
+  {
+    path: "pokemon",
+    component: PokemonListComponent,
+  },
   {
     path: "pokedex",
     component: PokedexComponent,
@@ -12,6 +18,10 @@ const routes: Routes = [
   {
     path: "pokedex/:entry",
     component: PokedexDetailComponent,
+  },
+  {
+    path: "pokemon/:entry",
+    component: PokemonDetailComponent,
   }
 ];
 
