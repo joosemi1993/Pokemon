@@ -5,8 +5,13 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 import { PokedexComponent } from './components/pokedex/pokedex.component'
 import { PokedexDetailComponent } from './components/pokedex-detail/pokedex-detail.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
+import { IntroductionComponent } from './components/introduction/introduction.component';
 
 const routes: Routes = [
+  {
+    path: "",
+    component: IntroductionComponent,
+  },
   {
     path: "pokemon",
     component: PokemonListComponent,

@@ -1,0 +1,7 @@
+.intro-pokemon {
+  height: 92vh;
+  width: 100%;
+  background-image: url("../../../assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+}
