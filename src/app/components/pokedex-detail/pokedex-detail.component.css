@@ -126,3 +126,45 @@
   background-color: #000;
   color: #fff
 }
+
+@media screen and (max-width: 991px) {
+  .pokedex {
+    width: 90%;
+    margin-top: 50px;
+    height: 64vh;
+  }
+
+  .pokemon-image img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pokedex-top {
+    height: 65%;
+  }
+
+  .pokemon-name p {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .pokedex {
+    height: auto;
+    margin-bottom: 25px;
+  }
+
+  .pokemon-item {
+    width: 50%;
+  }
+
+  .pokedex-bottom {
+    height: auto;
+    padding: 0;
+    gap: 30px;
+  }
+
+  .center-bottom-container p {
+    font-size: 17px;
+  }
+}

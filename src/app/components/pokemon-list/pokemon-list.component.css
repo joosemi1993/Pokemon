@@ -57,3 +57,24 @@
   color: #000;
   border: 1px solid #000;
 }
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+  .pokemon-element {
+    flex: 51%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .pokemon-element {
+    flex: 100%;
+    border: none;
+    border-bottom: 1px solid #aaa;
+  }
+
+  .pokemon-img img {
+    width: 200px;
+    height: 150px;
+  }
+}
