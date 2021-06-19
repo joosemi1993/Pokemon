@@ -5,3 +5,10 @@
   background-size: cover;
   background-position: center;
 }
+
+@media screen and (max-width: 600px) {
+  .intro-pokemon {
+    height: 90vh;
+    background-position: 47%;
+  }
+}
