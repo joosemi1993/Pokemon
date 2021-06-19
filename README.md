@@ -1,6 +1,6 @@
 # Pokemon
 
-Pokemon web app developed Angular where we use the [PokeApi](https://pokeapi.co/) to get the data.
+Pokemon web app developed in Angular and where we use the [PokeApi](https://pokeapi.co/) to get the data.
 
 ## Development server
 
