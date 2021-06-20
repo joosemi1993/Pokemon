@@ -29,4 +29,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ### Pokedex
 
-<img src="./src/assets/ScreenShots/pokemon.png" width="400" title="pokedex page">
+<img src="./src/assets/ScreenShots/pokedex.png" width="400" title="pokedex page">
